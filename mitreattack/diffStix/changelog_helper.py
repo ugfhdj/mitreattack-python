@@ -688,7 +688,7 @@ class DiffStix(object):
             A list of sorted, complex dictionary objects that tell if this "group" of objects have
             their parent objects in the same section.
         """
-        datastore_version = "old" if section == "deletions" else "new"
+        datastore_version = "old" if section in ("revocations", "deletions") else "new"
         subtechnique_relationships = self.data[datastore_version][domain]["relationships"]["subtechniques"]
         techniques = self.data[datastore_version][domain]["attack_objects"]["techniques"]
         datacomponents = self.data[datastore_version][domain]["attack_objects"]["datacomponents"]
